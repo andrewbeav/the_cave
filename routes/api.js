@@ -23,7 +23,6 @@ router.use(function(req, res, next) {
 
 		jwt.verify(token, req.app.get('jwtSecret'), function(err, decoded) {
 			currentUser = decoded._doc;
-			console.log(currentUser);
 			req.decoded = decoded;
 			next();
 		});
