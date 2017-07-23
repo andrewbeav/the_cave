@@ -15,7 +15,7 @@ var currentUser = {};
 
 // Middleware for protecting route
 router.use(function(req, res, next) {
-	if (req.url === '/register' || req.url == '/authenticate') next();
+	if (req.url === '/register' || req.url === '/authenticate') next();
 	else {
 		var token = req.body.token || req.headers['x-access-token'] || req.query.token;
 
