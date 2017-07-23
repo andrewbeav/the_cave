@@ -80,4 +80,31 @@ router.post('/manifesto', function(req, res, next) {
 	});
 });
 
+router.get('/manifestos', function(req, res, next) {
+	Manifesto.getManifestos(function(err, manifestos) {
+		if (err) res.json( { success: false, message: 'Unknown error occured while getting manifestos' } );
+		else {
+			res.json(manifestos);
+		}
+	})	
+});
+
+router.delete('/manifesto/:_id', function(req, res, next) {
+	Manifesto.findOne( { _id: req.params._id }, function(err, manifesto) {
+		if (err) throw err;
+
+		if (!manifesto) res.json( { success: false, message: 'Bad ID' } );
+		else if (manifesto.userId !== currentUser._id) {
+			res.json( { success: false, message: 'Current user is not owner of that manifesto. Cannot delete' } );
+		} else {
+			Manifesto.deleteManifesto(req.params._id, function(err, manifesto) {
+				if (err) res.json( { success: false, message: 'Unknown error deleting manifesto' } );
+				else {
+					res.json(manifesto);
+				}
+			});
+		}
+	});
+});
+
 module.exports = router;

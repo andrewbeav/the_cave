@@ -26,4 +26,12 @@ Manifesto.addManifesto = function(manifesto, callback) {
 	Manifesto.create(manifesto, callback);
 }
 
+Manifesto.getManifestos = function(callback) {
+	Manifesto.find(callback);
+}
+
+Manifesto.deleteManifesto = function(id, callback) {
+	Manifesto.remove( { _id: id }, callback );
+}
+
 module.exports = Manifesto;
