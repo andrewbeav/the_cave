@@ -30,6 +30,8 @@ router.use(function(req, res, next) {
     * Delete any manifesto - /remove_manifesto/:_id
 */
 
+const User = require('../models/user');
+
 router.get('/', function(req, res, next) {
   res.send('Admin API is working');
 });
