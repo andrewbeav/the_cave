@@ -13,6 +13,8 @@ const Manifesto = require('../models/manifesto');
 
 var currentUser = {};
 
+router.use('/admin', require('./admin'));
+
 // Middleware for protecting route
 router.use(function(req, res, next) {
 	if (req.url === '/register' || req.url === '/authenticate') next();
