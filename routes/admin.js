@@ -48,6 +48,6 @@ router.delete('/ban/:_id', function(req, res, next) {
     if (err) res.json( { success: false, message: 'Error deleting user' } );
     else res.json(user);
   });
-})
+});
 
 module.exports = router;
