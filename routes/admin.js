@@ -31,6 +31,7 @@ router.use(function(req, res, next) {
 */
 
 const User = require('../models/user');
+const Manifesto = require('../models/manifesto');
 
 router.get('/', function(req, res, next) {
   res.send('Admin API is working');
@@ -47,6 +48,13 @@ router.delete('/ban/:_id', function(req, res, next) {
   User.deleteUser(req.params._id, function(err, user) {
     if (err) res.json( { success: false, message: 'Error deleting user' } );
     else res.json(user);
+  });
+});
+
+router.delete('/remove_manifesto/:_id', function(req, res, next) {
+  Manifesto.deleteManifesto(req.params._id, function(err, result) {
+    if (err) res.json( { success: false, message: 'Error deleting manifesto' } );
+    else res.json(result);
   });
 });
 

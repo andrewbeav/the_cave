@@ -31,7 +31,7 @@ Manifesto.getManifestos = function(callback) {
 }
 
 Manifesto.deleteManifesto = function(id, callback) {
-	Manifesto.remove( { _id: id }, callback );
+	Manifesto.deleteOne( { _id: id }, callback );
 }
 
 module.exports = Manifesto;
