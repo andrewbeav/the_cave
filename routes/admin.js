@@ -43,4 +43,11 @@ router.get('/users', function(req, res, next) {
   });
 });
 
+router.delete('/ban/:_id', function(req, res, next) {
+  User.deleteUser(req.params._id, function(err, user) {
+    if (err) res.json( { success: false, message: 'Error deleting user' } );
+    else res.json(user);
+  });
+})
+
 module.exports = router;

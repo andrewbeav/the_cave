@@ -30,4 +30,8 @@ User.addUser = function(user, callback) {
 	User.create(user, callback);
 }
 
+User.deleteUser = function(id, callback) {
+  User.deleteOne( { _id: id }, callback);
+}
+
 module.exports = User;
