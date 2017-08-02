@@ -36,4 +36,11 @@ router.get('/', function(req, res, next) {
   res.send('Admin API is working');
 });
 
+router.get('/users', function(req, res, next) {
+  User.getUsers(function(err, users) {
+    if (err) res.json( { success: false, message: 'Error, could not get users' } );
+    else res.json(users);
+  });
+});
+
 module.exports = router;
