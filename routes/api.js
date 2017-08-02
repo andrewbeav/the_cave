@@ -60,6 +60,7 @@ router.post('/register', function(req, res, next) {
 
 		var user = req.body;
 		user.password = hash;
+    user.admin = false; // IMPORTANT
 		User.addUser(user, function(err, new_user) {
 			if (err) res.json( { success: false, message: 'Unknown error when adding user' } );
 			else {
