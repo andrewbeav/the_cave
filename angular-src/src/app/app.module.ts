@@ -7,11 +7,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BulletinScrollComponent } from './components/bulletin-scroll/bulletin-scroll.component';
 import { PublishManifestoComponent } from './components/publish-manifesto/publish-manifesto.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 const appRoutes:Routes = [
   { path: 'bulletin_scroll', component: BulletinScrollComponent },
   { path: 'publish', component: PublishManifestoComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'sign-in', component: SignInComponent }
 ];
 
 @NgModule({
@@ -20,7 +22,8 @@ const appRoutes:Routes = [
     NavbarComponent,
     BulletinScrollComponent,
     PublishManifestoComponent,
-    RegisterComponent
+    RegisterComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
